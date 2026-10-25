@@ -1,4 +1,4 @@
-// Badge kecil untuk label status (mis. "Demo", kategori, stok).
+// Badge kecil untuk label status (mis. "Referensi", kategori, stok).
 const tones = {
   amber: 'bg-amber-50 text-amber-700 ring-amber-600/20',
   emerald: 'bg-emerald-50 text-emerald-700 ring-emerald-600/20',

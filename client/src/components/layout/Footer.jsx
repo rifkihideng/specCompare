@@ -7,8 +7,8 @@ export default function Footer() {
             <span className="font-semibold text-slate-700">SpecCompare</span> — MVP.
           </p>
           <p className="max-w-md text-xs text-slate-400">
-            Seluruh data perangkat, spesifikasi, dan harga di situs ini adalah{' '}
-            <span className="font-semibold">data demo</span> (fiktif), bukan data produk aktual.
+            Spesifikasi &amp; harga di situs ini adalah{' '}
+            <span className="font-semibold">data referensi</span> (perkiraan), bukan data aktual terverifikasi.
           </p>
         </div>
       </div>

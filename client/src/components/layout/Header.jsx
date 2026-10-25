@@ -41,7 +41,7 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Badge tone="amber">Demo</Badge>
+          <Badge tone="amber">Referensi</Badge>
           <Link
             to="/admin"
             className="rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900"
