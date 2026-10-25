@@ -14,7 +14,7 @@ export default function PopularDevices() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
       <h2 className="text-xl font-bold text-slate-900">Perangkat populer</h2>
-      <p className="mt-1 text-sm text-slate-500">Contoh data demo untuk kebutuhan UI.</p>
+      <p className="mt-1 text-sm text-slate-500">Spesifikasi &amp; harga bersifat referensi.</p>
 
       <div className="mt-6">
         {loading && (

@@ -1,0 +1,262 @@
+// ============================================================
+// DATA PERANGKAT (REFERENSI)
+// Nama produk adalah produk asli. Spesifikasi berupa informasi
+// umum yang dikenal luas (dapat berbeda per varian/wilayah).
+// Harga adalah PERKIRAAN/REFERENSI dengan label sumber & tanggal
+// akses — BUKAN harga final atau data aktual terverifikasi.
+// ============================================================
+
+export const categories = [
+  { id: 1, name: 'Laptop', slug: 'laptop' },
+  { id: 2, name: 'Smartphone', slug: 'smartphone' },
+];
+
+// Label & tanggal akses bersama untuk semua referensi harga.
+const PRICE_SOURCE = 'Referensi harga umum e-commerce Indonesia (perkiraan)';
+const PRICE_ACCESSED_AT = '2026-10-25';
+
+const RAW_DEVICES = [
+  // ---------------- LAPTOP ----------------
+  {
+    id: 1,
+    slug: 'macbook-air-m3-13',
+    name: 'MacBook Air 13 (M3)',
+    brand: 'Apple',
+    category: 'Laptop',
+    description: 'Laptop tipis bertenaga chip Apple M3, cocok untuk produktivitas dan mobilitas.',
+    priceMin: 17_499_000,
+    priceMax: 19_999_000,
+    keySpecs: ['Apple M3', '8 GB RAM', '256 GB SSD'],
+  },
+  {
+    id: 2,
+    slug: 'asus-vivobook-14',
+    name: 'ASUS VivoBook 14',
+    brand: 'ASUS',
+    category: 'Laptop',
+    description: 'Laptop harian dengan performa Intel Core i5 dan desain ringan.',
+    priceMin: 8_299_000,
+    priceMax: 9_999_000,
+    keySpecs: ['Intel Core i5-1235U', '8 GB RAM', '512 GB SSD'],
+  },
+  {
+    id: 3,
+    slug: 'lenovo-ideapad-slim-3-15',
+    name: 'Lenovo IdeaPad Slim 3 15',
+    brand: 'Lenovo',
+    category: 'Laptop',
+    description: 'Laptop 15 inci dengan AMD Ryzen 5 untuk kebutuhan belajar dan kerja.',
+    priceMin: 6_299_000,
+    priceMax: 7_499_000,
+    keySpecs: ['AMD Ryzen 5 7520U', '8 GB RAM', '512 GB SSD'],
+  },
+  {
+    id: 4,
+    slug: 'acer-aspire-5-a515',
+    name: 'Acer Aspire 5 A515',
+    brand: 'Acer',
+    category: 'Laptop',
+    description: 'Laptop serbaguna dengan prosesor Intel Core i5 dan penyimpanan luas.',
+    priceMin: 7_599_000,
+    priceMax: 8_999_000,
+    keySpecs: ['Intel Core i5-1235U', '8 GB RAM', '512 GB SSD'],
+  },
+  {
+    id: 5,
+    slug: 'hp-pavilion-15-eg',
+    name: 'HP Pavilion 15',
+    brand: 'HP',
+    category: 'Laptop',
+    description: 'Laptop 15 inci dengan RAM 16 GB untuk multitasking yang lebih lancar.',
+    priceMin: 10_999_000,
+    priceMax: 12_499_000,
+    keySpecs: ['Intel Core i5-1335U', '16 GB RAM', '512 GB SSD'],
+  },
+
+  // ---------------- SMARTPHONE ----------------
+  {
+    id: 6,
+    slug: 'samsung-galaxy-s24',
+    name: 'Samsung Galaxy S24',
+    brand: 'Samsung',
+    category: 'Smartphone',
+    description: 'Flagship ringkas dengan layar AMOLED 120 Hz dan kamera serbaguna.',
+    priceMin: 13_499_000,
+    priceMax: 14_999_000,
+    keySpecs: ['6.2" AMOLED', '8 GB RAM', 'Kamera 50 MP'],
+  },
+  {
+    id: 7,
+    slug: 'apple-iphone-15',
+    name: 'Apple iPhone 15',
+    brand: 'Apple',
+    category: 'Smartphone',
+    description: 'iPhone dengan chip A16 Bionic dan kamera utama 48 MP.',
+    priceMin: 14_499_000,
+    priceMax: 15_999_000,
+    keySpecs: ['6.1" OLED', 'A16 Bionic', 'Kamera 48 MP'],
+  },
+  {
+    id: 8,
+    slug: 'xiaomi-redmi-note-13-pro',
+    name: 'Xiaomi Redmi Note 13 Pro',
+    brand: 'Xiaomi',
+    category: 'Smartphone',
+    description: 'Smartphone kelas menengah dengan kamera utama 200 MP.',
+    priceMin: 3_599_000,
+    priceMax: 3_999_000,
+    keySpecs: ['6.67" AMOLED', '8 GB RAM', 'Kamera 200 MP'],
+  },
+  {
+    id: 9,
+    slug: 'samsung-galaxy-a55',
+    name: 'Samsung Galaxy A55',
+    brand: 'Samsung',
+    category: 'Smartphone',
+    description: 'Smartphone menengah dengan layar Super AMOLED dan baterai 5000 mAh.',
+    priceMin: 5_799_000,
+    priceMax: 6_299_000,
+    keySpecs: ['6.6" AMOLED', '8 GB RAM', 'Kamera 50 MP'],
+  },
+  {
+    id: 10,
+    slug: 'realme-12-pro-plus',
+    name: 'realme 12 Pro+',
+    brand: 'realme',
+    category: 'Smartphone',
+    description: 'Smartphone dengan kamera periskop untuk fotografi jarak jauh.',
+    priceMin: 4_699_000,
+    priceMax: 5_199_000,
+    keySpecs: ['6.7" AMOLED', '8 GB RAM', 'Kamera 50 MP'],
+  },
+];
+
+export const devices = RAW_DEVICES.map((d) => ({
+  ...d,
+  isReference: true,
+  priceSource: PRICE_SOURCE,
+  priceAccessedAt: PRICE_ACCESSED_AT,
+}));
+
+// ============================================================
+// SPESIFIKASI (informasi umum, dapat berbeda per varian/wilayah).
+// `key` konsisten lintas perangkat agar tabel banding bisa
+// menyamakan baris.
+// ============================================================
+export const specs = {
+  'macbook-air-m3-13': [
+    { key: 'prosesor', label: 'Prosesor', value: 'Apple M3 (CPU 8-core)', group: 'Performa' },
+    { key: 'ram', label: 'RAM', value: '8 GB', group: 'Performa' },
+    { key: 'penyimpanan', label: 'Penyimpanan', value: '256 GB SSD', group: 'Performa' },
+    { key: 'gpu', label: 'GPU', value: 'GPU 8-core', group: 'Performa' },
+    { key: 'layar', label: 'Layar', value: '13.6" Liquid Retina', group: 'Layar' },
+    { key: 'resolusi', label: 'Resolusi', value: '2560 x 1664', group: 'Layar' },
+    { key: 'baterai', label: 'Baterai', value: '52.6 Wh', group: 'Baterai' },
+    { key: 'berat', label: 'Berat', value: '1.24 kg', group: 'Fisik' },
+    { key: 'os', label: 'Sistem Operasi', value: 'macOS', group: 'Umum' },
+  ],
+  'asus-vivobook-14': [
+    { key: 'prosesor', label: 'Prosesor', value: 'Intel Core i5-1235U', group: 'Performa' },
+    { key: 'ram', label: 'RAM', value: '8 GB', group: 'Performa' },
+    { key: 'penyimpanan', label: 'Penyimpanan', value: '512 GB SSD', group: 'Performa' },
+    { key: 'gpu', label: 'GPU', value: 'Intel Iris Xe', group: 'Performa' },
+    { key: 'layar', label: 'Layar', value: '14" IPS', group: 'Layar' },
+    { key: 'resolusi', label: 'Resolusi', value: '1920 x 1080', group: 'Layar' },
+    { key: 'baterai', label: 'Baterai', value: '42 Wh', group: 'Baterai' },
+    { key: 'berat', label: 'Berat', value: '1.4 kg', group: 'Fisik' },
+    { key: 'os', label: 'Sistem Operasi', value: 'Windows 11', group: 'Umum' },
+  ],
+  'lenovo-ideapad-slim-3-15': [
+    { key: 'prosesor', label: 'Prosesor', value: 'AMD Ryzen 5 7520U', group: 'Performa' },
+    { key: 'ram', label: 'RAM', value: '8 GB', group: 'Performa' },
+    { key: 'penyimpanan', label: 'Penyimpanan', value: '512 GB SSD', group: 'Performa' },
+    { key: 'gpu', label: 'GPU', value: 'AMD Radeon 610M', group: 'Performa' },
+    { key: 'layar', label: 'Layar', value: '15.6" IPS', group: 'Layar' },
+    { key: 'resolusi', label: 'Resolusi', value: '1920 x 1080', group: 'Layar' },
+    { key: 'baterai', label: 'Baterai', value: '47 Wh', group: 'Baterai' },
+    { key: 'berat', label: 'Berat', value: '1.62 kg', group: 'Fisik' },
+    { key: 'os', label: 'Sistem Operasi', value: 'Windows 11', group: 'Umum' },
+  ],
+  'acer-aspire-5-a515': [
+    { key: 'prosesor', label: 'Prosesor', value: 'Intel Core i5-1235U', group: 'Performa' },
+    { key: 'ram', label: 'RAM', value: '8 GB', group: 'Performa' },
+    { key: 'penyimpanan', label: 'Penyimpanan', value: '512 GB SSD', group: 'Performa' },
+    { key: 'gpu', label: 'GPU', value: 'Intel Iris Xe', group: 'Performa' },
+    { key: 'layar', label: 'Layar', value: '15.6" IPS', group: 'Layar' },
+    { key: 'resolusi', label: 'Resolusi', value: '1920 x 1080', group: 'Layar' },
+    { key: 'baterai', label: 'Baterai', value: '50 Wh', group: 'Baterai' },
+    { key: 'berat', label: 'Berat', value: '1.78 kg', group: 'Fisik' },
+    { key: 'os', label: 'Sistem Operasi', value: 'Windows 11', group: 'Umum' },
+  ],
+  'hp-pavilion-15-eg': [
+    { key: 'prosesor', label: 'Prosesor', value: 'Intel Core i5-1335U', group: 'Performa' },
+    { key: 'ram', label: 'RAM', value: '16 GB', group: 'Performa' },
+    { key: 'penyimpanan', label: 'Penyimpanan', value: '512 GB SSD', group: 'Performa' },
+    { key: 'gpu', label: 'GPU', value: 'Intel Iris Xe', group: 'Performa' },
+    { key: 'layar', label: 'Layar', value: '15.6" IPS', group: 'Layar' },
+    { key: 'resolusi', label: 'Resolusi', value: '1920 x 1080', group: 'Layar' },
+    { key: 'baterai', label: 'Baterai', value: '41 Wh', group: 'Baterai' },
+    { key: 'berat', label: 'Berat', value: '1.75 kg', group: 'Fisik' },
+    { key: 'os', label: 'Sistem Operasi', value: 'Windows 11', group: 'Umum' },
+  ],
+  'samsung-galaxy-s24': [
+    { key: 'chipset', label: 'Chipset', value: 'Exynos 2400 / Snapdragon 8 Gen 3 (varian wilayah)', group: 'Performa' },
+    { key: 'ram', label: 'RAM', value: '8 GB', group: 'Performa' },
+    { key: 'penyimpanan', label: 'Penyimpanan', value: '128 GB', group: 'Performa' },
+    { key: 'layar', label: 'Layar', value: '6.2" Dynamic AMOLED 2X', group: 'Layar' },
+    { key: 'resolusi', label: 'Resolusi', value: '2340 x 1080', group: 'Layar' },
+    { key: 'refresh_rate', label: 'Refresh Rate', value: '120 Hz', group: 'Layar' },
+    { key: 'kamera_utama', label: 'Kamera Utama', value: '50 MP + 12 MP + 10 MP', group: 'Kamera' },
+    { key: 'kamera_depan', label: 'Kamera Depan', value: '12 MP', group: 'Kamera' },
+    { key: 'baterai', label: 'Baterai', value: '4000 mAh', group: 'Baterai' },
+    { key: 'os', label: 'Sistem Operasi', value: 'Android 14 (One UI)', group: 'Umum' },
+  ],
+  'apple-iphone-15': [
+    { key: 'chipset', label: 'Chipset', value: 'Apple A16 Bionic', group: 'Performa' },
+    { key: 'ram', label: 'RAM', value: '6 GB', group: 'Performa' },
+    { key: 'penyimpanan', label: 'Penyimpanan', value: '128 GB', group: 'Performa' },
+    { key: 'layar', label: 'Layar', value: '6.1" Super Retina XDR OLED', group: 'Layar' },
+    { key: 'resolusi', label: 'Resolusi', value: '2556 x 1179', group: 'Layar' },
+    { key: 'refresh_rate', label: 'Refresh Rate', value: '60 Hz', group: 'Layar' },
+    { key: 'kamera_utama', label: 'Kamera Utama', value: '48 MP + 12 MP', group: 'Kamera' },
+    { key: 'kamera_depan', label: 'Kamera Depan', value: '12 MP', group: 'Kamera' },
+    { key: 'baterai', label: 'Baterai', value: '±3349 mAh (umum)', group: 'Baterai' },
+    { key: 'os', label: 'Sistem Operasi', value: 'iOS 17', group: 'Umum' },
+  ],
+  'xiaomi-redmi-note-13-pro': [
+    { key: 'chipset', label: 'Chipset', value: 'Snapdragon 7s Gen 2', group: 'Performa' },
+    { key: 'ram', label: 'RAM', value: '8 GB', group: 'Performa' },
+    { key: 'penyimpanan', label: 'Penyimpanan', value: '256 GB', group: 'Performa' },
+    { key: 'layar', label: 'Layar', value: '6.67" AMOLED', group: 'Layar' },
+    { key: 'resolusi', label: 'Resolusi', value: '2400 x 1080', group: 'Layar' },
+    { key: 'refresh_rate', label: 'Refresh Rate', value: '120 Hz', group: 'Layar' },
+    { key: 'kamera_utama', label: 'Kamera Utama', value: '200 MP + 8 MP + 2 MP', group: 'Kamera' },
+    { key: 'kamera_depan', label: 'Kamera Depan', value: '16 MP', group: 'Kamera' },
+    { key: 'baterai', label: 'Baterai', value: '5100 mAh', group: 'Baterai' },
+    { key: 'os', label: 'Sistem Operasi', value: 'Android 13 (HyperOS)', group: 'Umum' },
+  ],
+  'samsung-galaxy-a55': [
+    { key: 'chipset', label: 'Chipset', value: 'Exynos 1480', group: 'Performa' },
+    { key: 'ram', label: 'RAM', value: '8 GB', group: 'Performa' },
+    { key: 'penyimpanan', label: 'Penyimpanan', value: '256 GB', group: 'Performa' },
+    { key: 'layar', label: 'Layar', value: '6.6" Super AMOLED', group: 'Layar' },
+    { key: 'resolusi', label: 'Resolusi', value: '2340 x 1080', group: 'Layar' },
+    { key: 'refresh_rate', label: 'Refresh Rate', value: '120 Hz', group: 'Layar' },
+    { key: 'kamera_utama', label: 'Kamera Utama', value: '50 MP + 12 MP + 5 MP', group: 'Kamera' },
+    { key: 'kamera_depan', label: 'Kamera Depan', value: '32 MP', group: 'Kamera' },
+    { key: 'baterai', label: 'Baterai', value: '5000 mAh', group: 'Baterai' },
+    { key: 'os', label: 'Sistem Operasi', value: 'Android 14 (One UI)', group: 'Umum' },
+  ],
+  'realme-12-pro-plus': [
+    { key: 'chipset', label: 'Chipset', value: 'Snapdragon 7s Gen 2', group: 'Performa' },
+    { key: 'ram', label: 'RAM', value: '8 GB', group: 'Performa' },
+    { key: 'penyimpanan', label: 'Penyimpanan', value: '256 GB', group: 'Performa' },
+    { key: 'layar', label: 'Layar', value: '6.7" AMOLED', group: 'Layar' },
+    { key: 'resolusi', label: 'Resolusi', value: '2412 x 1080', group: 'Layar' },
+    { key: 'refresh_rate', label: 'Refresh Rate', value: '120 Hz', group: 'Layar' },
+    { key: 'kamera_utama', label: 'Kamera Utama', value: '50 MP + 8 MP + 64 MP (periskop)', group: 'Kamera' },
+    { key: 'kamera_depan', label: 'Kamera Depan', value: '32 MP', group: 'Kamera' },
+    { key: 'baterai', label: 'Baterai', value: '5000 mAh', group: 'Baterai' },
+    { key: 'os', label: 'Sistem Operasi', value: 'Android 14 (realme UI)', group: 'Umum' },
+  ],
+};

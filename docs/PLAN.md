@@ -2,7 +2,7 @@
 
 Platform perbandingan spesifikasi & harga perangkat elektronik.
 
-> **Catatan data:** seluruh data perangkat & harga pada proyek ini adalah **data demo** (fiktif) dan diberi label jelas. Tidak ada harga yang diklaim sebagai data aktual tanpa sumber terverifikasi.
+> **Catatan data:** nama produk adalah produk asli. Spesifikasi berupa informasi umum (dapat berbeda per varian/wilayah). Harga adalah **referensi/perkiraan** dengan label sumber & tanggal akses — tidak ada harga yang diklaim sebagai data aktual tanpa sumber terverifikasi.
 
 ---
 

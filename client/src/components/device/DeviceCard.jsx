@@ -23,7 +23,7 @@ export default function DeviceCard({ device }) {
           <span className="text-xs font-medium uppercase tracking-wide text-slate-400">
             {device.brand}
           </span>
-          {device.isDemo && <Badge tone="amber">Demo</Badge>}
+          {device.isReference && <Badge tone="amber">Referensi</Badge>}
         </div>
 
         <h3 className="text-sm font-semibold text-slate-900 group-hover:text-indigo-600">

@@ -9,7 +9,7 @@ import Skeleton from '../components/ui/Skeleton.jsx';
 import EmptyState from '../components/ui/EmptyState.jsx';
 import ErrorState from '../components/ui/ErrorState.jsx';
 import SpecTable from '../components/device/SpecTable.jsx';
-import PriceOffers from '../components/device/PriceOffers.jsx';
+import PriceInfo from '../components/device/PriceInfo.jsx';
 import { formatIDR } from '../utils/format.js';
 import { categoryIcon } from '../utils/categoryIcons.js';
 import { isInCompare, toggleCompare } from '../utils/compare.js';
@@ -103,7 +103,7 @@ export default function DeviceDetail() {
 
         <div>
           <div className="flex flex-wrap items-center gap-2">
-            <Badge tone="amber">Demo</Badge>
+            <Badge tone="amber">Referensi</Badge>
             <span className="text-xs font-medium uppercase tracking-wide text-slate-400">
               {device.brand}
             </span>
@@ -116,7 +116,7 @@ export default function DeviceDetail() {
           </h1>
 
           <p className="mt-2 text-sm text-slate-600">
-            {device.description ?? 'Perangkat demo untuk kebutuhan pengujian antarmuka.'}
+            {device.description ?? 'Data perangkat bersifat referensi.'}
           </p>
 
           <p className="mt-4 text-2xl font-bold text-emerald-600">
@@ -151,10 +151,10 @@ export default function DeviceDetail() {
 
       {/* Harga */}
       <section className="mt-12">
-        <h2 className="text-xl font-bold text-slate-900">Perbandingan harga</h2>
-        <p className="mt-1 text-sm text-slate-500">Penawaran dari beberapa penjual (data demo).</p>
+        <h2 className="text-xl font-bold text-slate-900">Informasi harga</h2>
+        <p className="mt-1 text-sm text-slate-500">Harga referensi, bukan penawaran final.</p>
         <div className="mt-4">
-          <PriceOffers offers={device.offers} />
+          <PriceInfo device={device} />
         </div>
       </section>
     </div>

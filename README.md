@@ -2,7 +2,7 @@
 
 Platform perbandingan spesifikasi & harga perangkat elektronik (MVP).
 
-> **Status data:** seluruh data perangkat & harga pada proyek ini adalah **data demo** (fiktif) dan diberi label jelas. Harga bukan data aktual dan tidak memiliki sumber verifikasi produk riil.
+> **Status data:** nama produk adalah produk asli. Spesifikasi berupa informasi umum (dapat berbeda per varian/wilayah), dan **harga adalah referensi/perkiraan** dengan label sumber & tanggal akses — bukan data aktual terverifikasi.
 
 ## Struktur
 
