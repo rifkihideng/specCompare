@@ -4,6 +4,7 @@ import DeviceCard from '../device/DeviceCard.jsx';
 import Skeleton from '../ui/Skeleton.jsx';
 import EmptyState from '../ui/EmptyState.jsx';
 import ErrorState from '../ui/ErrorState.jsx';
+import { Package } from 'lucide-react';
 
 // Bagian "Perangkat populer": menangani keempat kondisi UI —
 // loading (skeleton), error (ErrorState), kosong (EmptyState), dan data (grid).
@@ -33,7 +34,7 @@ export default function PopularDevices() {
 
         {!loading && !error && devices.length === 0 && (
           <EmptyState
-            icon="📦"
+            icon={Package}
             title="Belum ada perangkat"
             description="Perangkat populer akan muncul di sini."
           />

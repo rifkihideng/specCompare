@@ -1,4 +1,4 @@
-import { demoCategories, demoDevices } from './demoData.js';
+import { demoCategories, demoDevices, demoSpecs, demoOffers } from './demoData.js';
 
 // Simulasi jeda jaringan agar loading state terlihat saat pengembangan.
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -85,4 +85,44 @@ export async function fetchDevices({
   }
 
   return items;
+}
+
+// Mengambil beberapa perangkat lengkap (beserta spesifikasi) berdasarkan
+// daftar id, untuk halaman Bandingkan. Urutan hasil mengikuti urutan id.
+export async function fetchCompareDevices(ids) {
+  await delay(500);
+
+  return ids
+    .map((id) => demoDevices.find((d) => d.id === id))
+    .filter(Boolean)
+    .map((d) => ({
+      ...d,
+      specs: demoSpecs[d.slug] ?? [],
+    }));
+}
+
+// Error khusus dengan kode status HTTP, agar halaman dapat membedakan
+// "tidak ditemukan" (404) dari kegagalan umum.
+export class ApiError extends Error {
+  constructor(message, status = 500) {
+    super(message);
+    this.status = status;
+  }
+}
+
+// Mengambil satu perangkat lengkap (termasuk spesifikasi & penawaran harga)
+// berdasarkan slug. Melempar ApiError(404) bila slug tidak dikenal.
+export async function fetchDeviceBySlug(slug) {
+  await delay(500);
+
+  const device = demoDevices.find((d) => d.slug === slug);
+  if (!device) {
+    throw new ApiError('Perangkat tidak ditemukan', 404);
+  }
+
+  return {
+    ...device,
+    specs: demoSpecs[slug] ?? [],
+    offers: demoOffers[slug] ?? [],
+  };
 }

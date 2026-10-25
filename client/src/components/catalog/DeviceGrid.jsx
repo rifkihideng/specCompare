@@ -3,6 +3,7 @@ import Skeleton from '../ui/Skeleton.jsx';
 import EmptyState from '../ui/EmptyState.jsx';
 import ErrorState from '../ui/ErrorState.jsx';
 import Button from '../ui/Button.jsx';
+import { SearchX } from 'lucide-react';
 
 // Grid hasil katalog: menangani loading / error / empty / data.
 export default function DeviceGrid({ devices, loading, error, onRetry, onReset }) {
@@ -28,7 +29,7 @@ export default function DeviceGrid({ devices, loading, error, onRetry, onReset }
   if (devices.length === 0) {
     return (
       <EmptyState
-        icon="🔍"
+        icon={SearchX}
         title="Tidak ada perangkat yang cocok"
         description="Coba ubah atau reset filter pencarian Anda."
         action={

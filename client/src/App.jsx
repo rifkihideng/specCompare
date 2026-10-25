@@ -2,6 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import SiteLayout from './layouts/SiteLayout.jsx';
 import Home from './pages/Home.jsx';
 import Catalog from './pages/Catalog.jsx';
+import DeviceDetail from './pages/DeviceDetail.jsx';
+import Compare from './pages/Compare.jsx';
 import ComingSoon from './pages/ComingSoon.jsx';
 
 // Definisi seluruh rute aplikasi.
@@ -13,8 +15,8 @@ export default function App() {
       <Route element={<SiteLayout />}>
         <Route index element={<Home />} />
         <Route path="katalog" element={<Catalog />} />
-        <Route path="perangkat/:slug" element={<ComingSoon title="Detail Perangkat" />} />
-        <Route path="bandingkan" element={<ComingSoon title="Bandingkan" />} />
+        <Route path="perangkat/:slug" element={<DeviceDetail />} />
+        <Route path="bandingkan" element={<Compare />} />
         <Route path="favorit" element={<ComingSoon title="Favorit" />} />
         <Route path="admin" element={<ComingSoon title="Dashboard Admin" />} />
         <Route path="*" element={<ComingSoon title="Halaman tidak ditemukan" />} />

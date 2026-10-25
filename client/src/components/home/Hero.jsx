@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Search } from 'lucide-react';
 
 // Bagian teratas beranda: headline, form pencarian, dan chip kategori.
 export default function Hero({ categories }) {
@@ -43,8 +44,9 @@ export default function Hero({ categories }) {
             />
             <button
               type="submit"
-              className="shrink-0 rounded-lg bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-500"
+              className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-500"
             >
+              <Search className="h-4 w-4" />
               Cari
             </button>
           </form>
