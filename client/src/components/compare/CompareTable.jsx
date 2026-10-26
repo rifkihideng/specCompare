@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { formatIDR } from '../../utils/format.js';
-import { categoryIcon } from '../../utils/categoryIcons.js';
+import DeviceImage from '../device/DeviceImage.jsx';
 
 // Urutan kelompok spesifikasi agar tabel perbandingan konsisten.
 const GROUP_ORDER = [
@@ -62,12 +62,14 @@ export default function CompareTable({ devices, onRemove }) {
             {devices.map((d) => (
               <th key={d.id} className="min-w-[11rem] px-4 py-3 align-top">
                 <div className="flex flex-col items-center gap-1 text-center">
-                  <span className="text-slate-400">
-                    {(() => {
-                      const Icon = categoryIcon(d.category);
-                      return <Icon className="h-7 w-7" />;
-                    })()}
-                  </span>
+                  <div className="w-24">
+                    <DeviceImage
+                      device={d}
+                      heightClass="h-16"
+                      iconSizeClass="h-7 w-7"
+                      containerClassName="rounded-lg"
+                    />
+                  </div>
                   <span className="text-xs uppercase tracking-wide text-slate-400">{d.brand}</span>
                   <Link
                     to={`/perangkat/${d.slug}`}
