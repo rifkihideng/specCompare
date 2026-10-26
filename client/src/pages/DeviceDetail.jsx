@@ -10,8 +10,8 @@ import EmptyState from '../components/ui/EmptyState.jsx';
 import ErrorState from '../components/ui/ErrorState.jsx';
 import SpecTable from '../components/device/SpecTable.jsx';
 import PriceInfo from '../components/device/PriceInfo.jsx';
+import DeviceImage from '../components/device/DeviceImage.jsx';
 import { formatIDR } from '../utils/format.js';
-import { categoryIcon } from '../utils/categoryIcons.js';
 import { isInCompare, toggleCompare } from '../utils/compare.js';
 
 // Skeleton khusus halaman detail (bentuknya menyerupai layout aslinya).
@@ -71,7 +71,6 @@ export default function DeviceDetail() {
   if (!device) return null;
 
   const inCompare = isInCompare(device.id);
-  const DeviceIcon = categoryIcon(device.category);
 
   const onToggleCompare = () => {
     const result = toggleCompare(device.id);
@@ -97,9 +96,12 @@ export default function DeviceDetail() {
 
       {/* Header */}
       <div className="mt-6 grid gap-8 lg:grid-cols-[16rem_1fr]">
-        <div className="flex h-64 items-center justify-center rounded-xl bg-gradient-to-br from-slate-100 to-slate-200">
-          <DeviceIcon className="h-20 w-20 text-slate-400" />
-        </div>
+        <DeviceImage
+          device={device}
+          heightClass="h-64"
+          iconSizeClass="h-20 w-20"
+          containerClassName="rounded-xl"
+        />
 
         <div>
           <div className="flex flex-wrap items-center gap-2">

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Badge from '../ui/Badge.jsx';
+import DeviceImage from './DeviceImage.jsx';
 import { formatIDR } from '../../utils/format.js';
-import { categoryIcon } from '../../utils/categoryIcons.js';
 
 // Kartu ringkas satu perangkat untuk grid katalog / perangkat populer.
 export default function DeviceCard({ device }) {
@@ -10,13 +10,7 @@ export default function DeviceCard({ device }) {
       to={`/perangkat/${device.slug}`}
       className="group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition-shadow hover:shadow-md"
     >
-      {/* Placeholder gambar — sengaja tidak memakai foto produk riil. */}
-      <div className="flex h-40 items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-        {(() => {
-          const Icon = categoryIcon(device.category);
-          return <Icon className="h-12 w-12 text-slate-400" />;
-        })()}
-      </div>
+      <DeviceImage device={device} />
 
       <div className="flex flex-1 flex-col gap-2 p-4">
         <div className="flex items-center justify-between gap-2">
